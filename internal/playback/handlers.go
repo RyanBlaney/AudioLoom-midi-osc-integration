@@ -9,7 +9,7 @@ import (
 func HandlePlayback(
 	dispatcher *osc.StandardDispatcher,
 	collector *PlaybackCollector,
-) error {
+) {
 	dispatcher.AddMsgHandler("/playback/start", func(msg *osc.Message) {
 		collector.mu.Lock()
 		defer collector.mu.Unlock()
@@ -40,10 +40,8 @@ func HandlePlayback(
 		}
 	})
 
-	/* 	dispatcher.AddMsgHandler("*", func(msg *osc.Message) {
+	dispatcher.AddMsgHandler("*", func(msg *osc.Message) {
 		log.Printf("Received message: %v\n", msg.Address)
 		log.Printf("   %v\n", msg.Arguments...)
-	}) */
-
-	return nil
+	})
 }
