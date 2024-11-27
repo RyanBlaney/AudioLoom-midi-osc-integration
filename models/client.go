@@ -1,5 +1,7 @@
 package models
 
+import "sync"
+
 type ClientData struct {
 	HostName string
 	DAW      string
@@ -16,4 +18,5 @@ type ClientData struct {
 	IsHost           bool
 	DAWVersion       string // Fault tolerance
 	ProtocolVersion  string // MIDI1.0 vs MIDI2.0
+	mu               sync.Mutex
 }

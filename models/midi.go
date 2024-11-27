@@ -11,4 +11,5 @@ type MIDINote struct {
 	NoteNumber int
 	Velocity   int
 	Duration   float64
+	Timestamp  int64
 }
